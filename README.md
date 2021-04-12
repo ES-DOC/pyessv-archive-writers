@@ -1,4 +1,4 @@
-pyessv-archive-writers
+pyessv-writers
 ===============
 
 Python earth system standard vocabulary archive writers.
