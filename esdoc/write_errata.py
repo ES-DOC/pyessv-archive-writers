@@ -86,6 +86,7 @@ def _write_issue_status(scope):
             'color': '#0c343d'
         }
     )
+
     pyessv.create_term(collection, 'wontfix',
         create_date=utils.CREATE_DATE,
         label='Wont Fix',

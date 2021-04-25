@@ -3,7 +3,7 @@
 # ###############################################################
 
 # Set home path
-export PYESSV_ARCHIVE_WRITERS_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PYESSV_WRITER_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Set archive directory.
 if [ ! -d $HOME/.esdoc/pyessv-archive ]; then
@@ -15,12 +15,13 @@ fi
 # ###############################################################
 
 # Ensure shell scripts are executable.
-chmod a+x $PYESSV_ARCHIVE_WRITERS_HOME/*/*.sh
+chmod a+x $PYESSV_WRITER_HOME/*/*.sh
 
 # ###############################################################
 # STANDARD-SECTION: ALIASES
 # ###############################################################
 
-alias pyessv-write-esdoc=$PYESSV_LIB_HOME/sh/writers/esdoc/write.sh
-alias pyessv-write-esgf=$PYESSV_LIB_HOME/sh/writers/esgf/write.sh
-alias pyessv-write-wcrp=$PYESSV_LIB_HOME/sh/writers/wcrp/write.sh
+alias pyessv-write-copernicus=$PYESSV_WRITER_HOME/copernicus/write.sh
+alias pyessv-write-esdoc=$PYESSV_WRITER_HOME/esdoc/write.sh
+alias pyessv-write-esgf=$PYESSV_WRITER_HOME/esgf/write.sh
+alias pyessv-write-wcrp=$PYESSV_WRITER_HOME/wcrp/write.sh

@@ -1,15 +1,17 @@
 #!/bin/bash
 
 # Import utils.
-source $PYESSV_LIB_HOME/sh/utils.sh
+source $PYESSV_WRITER_HOME/utils.sh
 
 # Main entry point.
 main()
 {
-	pushd $PYESSV_LIB_HOME
-	pipenv run python $PYESSV_LIB_HOME/sh/writers/copernicus/cordexp/write.py --source=$1
-	log "COPERNICUS cordexp vocabs written to "$HOME/.esdoc/pyessv-archive
+	pushd $PYESSV_WRITER_HOME || exit
+	pipenv run python "$PYESSV_WRITER_HOME/copernicus/write_cordexp.py"
+	popd || exit
+
+	log "COPERNICUS cordexp vocabs written to $PYESSV_ARCHIVE_HOME"
 }
 
 # Invoke entry point.
-main $1
+main

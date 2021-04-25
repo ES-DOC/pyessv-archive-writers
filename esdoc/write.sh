@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Import utils.
-source $PYESSV_LIB_HOME/sh/utils.sh
+source $PYESSV_WRITER_HOME/utils.sh
 
 # Main entry point.
 main()
@@ -10,12 +10,13 @@ main()
 	rm -rf ~/.esdoc/pyessv-archive/esdoc
 
 	# Write vocabularies.
-	pushd $PYESSV_LIB_HOME
-	pipenv run python $PYESSV_LIB_HOME/sh/writers/esdoc/write_errata.py
-	pipenv run python $PYESSV_LIB_HOME/sh/writers/esdoc/write_cordexp.py
-	pipenv run python $PYESSV_LIB_HOME/sh/writers/esdoc/write_cmip6.py
+	pushd $PYESSV_WRITER_HOME || exit
+	pipenv run python $PYESSV_WRITER_HOME/esdoc/write_errata.py
+	pipenv run python $PYESSV_WRITER_HOME/esdoc/write_cordexp.py
+	pipenv run python $PYESSV_WRITER_HOME/esdoc/write_cmip6.py
+	popd || exit
 
-	log "ES-DOC vocabs written to "$HOME/.esdoc/esdoc
+	log "ES-DOC vocabs written to "$HOME/.esdoc/pyessv-archive
 }
 
 # Invoke entry point.
