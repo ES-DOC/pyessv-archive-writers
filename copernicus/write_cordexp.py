@@ -13,32 +13,17 @@ import pyessv
 import utils
 
 
-# Set of participating institutions.
-_INSTITUTES = {
-	"CNRM",
-	"DMI",
-    "GERICS",
-    "ICTP",
-    "IPSL",
-    "KNMI",
-    "MOHC",
-    "MPI-CSC",
-    "SMHI",
-    "UHOH",
+# Set of regional domains.
+_DOMAIN = {
+    "EUR-11",
 }
 
-
-# Set of RCM models.
-_RCM_MODELS = {
-    "MPI-CSC",
-    "SMHI",
-    "UHOH",
-}
 
 # Map: institution <-> rcm models.
 _MAP_INSTITUTE_TO_RCM_MODEL = {
 	"CNRM": { "CNRM-ALADIN63", },
 	"DMI": { "DMI-HIRHAM5", },
+	"ETH": { "COSMO-CRCLIM", },
     "GERICS": { "GERICS-REMO2015", },
     "ICTP": { "ICTP-RegCM4-6", },
     "IPSL": { "IPSL-WRF381P", },
@@ -82,12 +67,32 @@ def _get_scope(authority):
         )
 
     for factory in (
+        _get_collection_domain,
         _get_collection_insititution,
         _get_collection_rcm_model,
         ):
         factory(scope)
 
     return scope
+
+
+def _get_collection_domain(scope):
+    """Writes colleciton of associated institutions.
+
+    """
+    collection = pyessv.create_collection(scope, 'DOMAIN',
+        create_date=utils.CREATE_DATE,
+        label='Regional domains',
+        description="Regional domain constraining modelling context."
+    )
+
+    for domain in _DOMAIN:
+        pyessv.create_term(collection, domain.lower(),
+            create_date=utils.CREATE_DATE,
+            label=domain,
+        )
+
+    return collection
 
 
 def _get_collection_insititution(scope):
