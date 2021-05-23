@@ -23,7 +23,7 @@ _DOMAIN = {
 _MAP_INSTITUTE_TO_RCM_MODEL = {
 	"CNRM": { "CNRM-ALADIN63", },
 	"DMI": { "DMI-HIRHAM5", },
-	"ETH": { "COSMO-CRCLIM", },
+	"ETH": { "ETH-COSMO-CRCLIM-V1-1", },
     "GERICS": { "GERICS-REMO2015", },
     "ICTP": { "ICTP-RegCM4-6", },
     "IPSL": { "IPSL-WRF381P", },
