@@ -64,10 +64,22 @@ def _write_model_topic(scope):
         label='Top Level'
     )
 
+    pyessv.create_term(collection, 'aerosol',
+        create_date=utils.CREATE_DATE,
+        description='Aerosol',
+        label='Aerosol'
+    )
+    
     pyessv.create_term(collection, 'atmos',
         create_date=utils.CREATE_DATE,
         description='Atmosphere',
         label='Atmosphere'
+    )
+
+    pyessv.create_term(collection, 'land',
+        create_date=utils.CREATE_DATE,
+        description='Land Surface',
+        label='Land Surface'
     )
 
 
