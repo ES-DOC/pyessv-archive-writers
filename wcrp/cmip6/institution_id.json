@@ -1174,5 +1174,13 @@
     "coordinates": "-79.3980754,43.6606903",
     "homepage": "https://www.physics.utoronto.ca",
     "consortia": []
+  },
+  {
+    "code": "UCSB",
+    "name": "University of California - Bren School of Environmental Science and Management",
+    "postalAddress": "c/o Samantha Stevenson, 2400 Bren Hall, University of California Santa Barbara, Santa Barbara, CA 93106, USA",
+    "coordinates": "34.413963, -119.848946.",
+    "homepage": "https://www.ucsb.edu/",
+    "consortia": []
   }
 ]
