@@ -16,7 +16,7 @@ main()
 	pipenv run python $PYESSV_WRITER_HOME/esdoc/write_cmip6.py
 	popd || exit
 
-	log "ES-DOC vocabs written to "$HOME/.esdoc/pyessv-archive
+	log "ES-DOC vocabs written to "${PYESSV_ARCHIVE_HOME:-$(echo $HOME/.esdoc/pyessv-archive)}
 }
 
 # Invoke entry point.
