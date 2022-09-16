@@ -2,12 +2,15 @@
 # STANDARD-SECTION: SETUP
 # ###############################################################
 
-# Set home path
+# Set path to here.
 export PYESSV_WRITER_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Set archive directory.
-if [ ! -d $HOME/.esdoc/pyessv-archive ]; then
-    mkdir -p $HOME/.esdoc/pyessv-archive
+# Set path to archive.
+export PYESSV_WRITER_ARCHIVE_HOME=${PYESSV_ARCHIVE_HOME:-$(echo $HOME/.esdoc/pyessv-archive)}
+
+# Ensure archive directory exists.
+if [ ! -d "$PYESSV_WRITER_ARCHIVE_HOME" ]; then
+    mkdir -p $PYESSV_WRITER_ARCHIVE_HOME
 fi
 
 # ###############################################################
@@ -22,7 +25,7 @@ chmod a+x $PYESSV_WRITER_HOME/*/*.sh
 # STANDARD-SECTION: ALIASES
 # ###############################################################
 
-alias pyessv-write=$PYESSV_WRITER_HOME/write.sh
+alias pyessv-write-all=$PYESSV_WRITER_HOME/write_all.sh
 alias pyessv-write-copernicus=$PYESSV_WRITER_HOME/copernicus/write.sh
 alias pyessv-write-esdoc=$PYESSV_WRITER_HOME/esdoc/write.sh
 alias pyessv-write-esgf=$PYESSV_WRITER_HOME/esgf/write.sh

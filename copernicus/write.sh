@@ -10,7 +10,7 @@ main()
 	pipenv run python "$PYESSV_WRITER_HOME/copernicus/write_cordexp.py"
 	popd || exit
 
-	log "COPERNICUS cordexp vocabs written to "${PYESSV_ARCHIVE_HOME:-$(echo $HOME/.esdoc/pyessv-archive)}
+	log "COPERNICUS cordexp vocabs written to "${PYESSV_WRITER_ARCHIVE_HOME}
 }
 
 # Invoke entry point.

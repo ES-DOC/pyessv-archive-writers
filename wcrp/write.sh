@@ -10,7 +10,7 @@ main()
 	pipenv run python $PYESSV_WRITER_HOME/wcrp/cmip6/write.py --source=$1
 	popd || exit
 
-	log "WCRP cmip6 vocabs written to "${PYESSV_ARCHIVE_HOME:-$(echo $HOME/.esdoc/pyessv-archive)}
+	log "WCRP cmip6 vocabs written to "${PYESSV_WRITER_ARCHIVE_HOME}
 }
 
 # Invoke entry point.
