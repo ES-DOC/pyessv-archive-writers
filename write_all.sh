@@ -39,17 +39,5 @@ _main()
 	log "ES-DOC vocabs written to "$ARCHIVE_HOME
 }
 
-# Parse input arguments.
-for ARGUMENT in "$@"
-do
-    KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
-    VALUE=$(echo "$ARGUMENT" | cut -f2 -d=)
-    case "$KEY" in
-        path-wcrp-cmip6) PATH_TO_WCRP_CMIP6_VOCABS=${VALUE} ;;
-        path-esg-config) PATH_TO_ESG_INI_FILES=${VALUE} ;;
-        *)
-    esac
-done
-
 # Invoke entry point.
-_main $PATH_TO_WCRP_CMIP6_VOCABS $PATH_TO_ESG_INI_FILES
+_main $1 $2
