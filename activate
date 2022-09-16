@@ -15,12 +15,14 @@ fi
 # ###############################################################
 
 # Ensure shell scripts are executable.
+chmod a+x $PYESSV_WRITER_HOME/*.sh
 chmod a+x $PYESSV_WRITER_HOME/*/*.sh
 
 # ###############################################################
 # STANDARD-SECTION: ALIASES
 # ###############################################################
 
+alias pyessv-write=$PYESSV_WRITER_HOME/write.sh
 alias pyessv-write-copernicus=$PYESSV_WRITER_HOME/copernicus/write.sh
 alias pyessv-write-esdoc=$PYESSV_WRITER_HOME/esdoc/write.sh
 alias pyessv-write-esgf=$PYESSV_WRITER_HOME/esgf/write.sh
