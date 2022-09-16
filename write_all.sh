@@ -4,7 +4,7 @@
 source $PYESSV_WRITER_HOME/utils.sh
 
 # Main entry point.
-main()
+_main()
 {
     local PATH_TO_WCRP_CMIP6_VOCABS=${1}
     local PATH_TO_ESG_INI_FILES=${2}
@@ -39,6 +39,7 @@ main()
 	log "ES-DOC vocabs written to "$ARCHIVE_HOME
 }
 
+# Parse input arguments.
 for ARGUMENT in "$@"
 do
     KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
@@ -51,4 +52,4 @@ do
 done
 
 # Invoke entry point.
-main $PATH_TO_WCRP_CMIP6_VOCABS $PATH_TO_ESG_INI_FILES
+_main $PATH_TO_WCRP_CMIP6_VOCABS $PATH_TO_ESG_INI_FILES
