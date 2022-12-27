@@ -47,6 +47,7 @@ def _write_scope(authority):
     _write_projects(scope)
     _write_issue_severity(scope)
     _write_issue_status(scope)
+    _write_moderation_status(scope)
     _write_pid_task_action(scope)
     _write_pid_task_status(scope)
 
@@ -139,6 +140,49 @@ def _write_issue_severity(scope):
         data={
             'color': '#a61c00',
             'sortOrdinal': 3
+        }
+    )
+
+
+def _write_moderation_status(scope):
+    """Writes ES-DOC errata moderation status terms.
+
+    """
+    collection = pyessv.create_collection(scope, 'moderation-status',
+        create_date=utils.CREATE_DATE,
+        label='Moderation Status',
+        description="Errata moderation status"
+    )
+
+    pyessv.create_term(collection, 'accepted',
+        create_date=utils.CREATE_DATE,
+        label='Accepted',
+        data={
+            'color': '#00ff00'
+        }
+    )
+
+    pyessv.create_term(collection, 'in-review',
+        create_date=utils.CREATE_DATE,
+        label='In Review',
+        data={
+            'color': '#ff9900'
+        }
+    )
+
+    pyessv.create_term(collection, 'not-required',
+        create_date=utils.CREATE_DATE,
+        label='Not Required',
+        data={
+            'color': '#0c343d'
+        }
+    )
+
+    pyessv.create_term(collection, 'rejected',
+        create_date=utils.CREATE_DATE,
+        label='Rejected',
+        data={
+            'color': '#38761d'
         }
     )
 
